@@ -1,0 +1,20 @@
+In this project, if we have a query that is eligible for join rewriting, our program will:
+    1. Rewrite the join, print it to standard out.
+    2. Evaluate the rewritten join query and print the output xml to the standard out as well.
+If the query is not eligible for rewriting, we will simply print out the xml output.
+
+Here is a sample output:
+Rewritten Query: 
+for $tuple in join (for $s in doc("j_caesar.xml")//SPEAKER, $stxt in $s/text() where $stxt eq "CAESAR" return <tuple>{<stxt>{$stxt}</stxt>, <s>{$s}</s>}</tuple>, for $a in doc("j_caesar.xml")//ACT, $sp in $a//SPEAKER return <tuple>{<sp>{$sp}</sp>, <a>{$a}</a>}</tuple>, [s], [sp]) return <act>{$tuple/a/*/TITLE/text()}</act>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<query_result>
+    <act>ACT I</act>
+    <act>ACT I</act>
+    <act>ACT I</act>
+    <act>ACT I</act>
+    <act>ACT I</act>
+    <act>ACT I</act>
+    <act>ACT I</act>
+    ......
+</query_result>

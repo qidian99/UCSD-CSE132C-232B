@@ -1,0 +1,15 @@
+# .class file
+*.class
+
+# IDE config
+.idea
+.idea/*
+.vscode/
+
+.DS_Store
+
+org
+javax
+*.out
+*.txt
+*.log
